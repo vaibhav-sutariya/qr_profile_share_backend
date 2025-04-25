@@ -40,6 +40,7 @@ mongoose
 	.then(() => {
 		// eslint-disable-next-line no-console
 		console.log(`MongoDB connected successfully`);
+  console.log(`running running`);
 	})
 	.catch((err) => {
 		// eslint-disable-next-line no-console
