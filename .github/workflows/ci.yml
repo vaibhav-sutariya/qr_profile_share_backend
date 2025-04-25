@@ -47,6 +47,3 @@ jobs:
 
             - name: 🛠️ Build
               run: npm run build
-
-            - name: 🚀 Run app (optional)
-              run: ts-node ./dist/server.js
