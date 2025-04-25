@@ -1,0 +1,33 @@
+{
+	"trailingComma": "all",
+	"useTabs": true,
+	"tabWidth": 4,
+	"semi": true,
+	"singleQuote": false,
+	"printWidth": 80,
+	"arrowParens": "always",
+	"bracketSpacing": true,
+	"overrides": [
+		{
+			"files": "*.json",
+			"options": {
+				"parser": "json",
+				"printWidth": 100
+			}
+		},
+		{
+			"files": "*.md",
+			"options": {
+				"parser": "markdown",
+				"printWidth": 100
+			}
+		},
+		{
+			"files": "*.yaml",
+			"options": {
+				"parser": "yaml",
+				"tabWidth": 2
+			}
+		}
+	]
+}

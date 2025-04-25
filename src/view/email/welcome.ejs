@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <%- await include('styles.ejs') %>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Welcome <%= firstName %>!</h1>
+        </div>
+
+        <div class="body">
+
+            <p>Hi <%= firstName %></p>
+
+            <p>Welcome to QrProfileShare, we are glad to have you.</p>
+
+            <a href="<%= url %>" class="button" target="_blank">Update You Profile</a>
+
+            <p>If the above button does not work, please copy and paste the following link in your browser</p>
+
+            <p><em>If you did not register an account with us, please ignore this email.</em></p>
+            
+           
+        </div>
+
+        <div class="footer">
+            <p>Vaibhav Sutariya - QrProfileShare.</p>
+        </div>
+    </div>
+</body
+</html>

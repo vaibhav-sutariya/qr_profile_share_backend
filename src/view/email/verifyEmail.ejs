@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Email</title>
+    <%- await include('styles.ejs') %>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Verify Your Email</h1>
+        </div>
+
+        <div class="body">
+
+            <p>Hi <%= firstName %></p>
+
+            <p>Please verify your email address by clicking the button below. The link will expires in <%= expiresIn %></p>
+
+            <a href="<%= url %>" class="button" target="_blank">Verify Email</a>
+
+            <p>If the above button does not work, please copy and paste the following link in your browser</p>
+
+            <p><em>If you did not register an account with us, please ignore this email.</em></p>
+            
+           
+        </div>
+
+        <div class="footer">
+            <p>Vaibhav Sutariya - QrProfileShare.</p>
+        </div>
+    </div>
+</body
+</html>
