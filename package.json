@@ -10,7 +10,7 @@
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"build": "rimraf ./dist && tsc && copyfiles -u 1 \"src/view/**/*\" dist",
-		"start": "node ./dist/server.js",
+		"start": "ts-node ./dist/server.js",
 		"dev": "nodemon --exec node --no-warnings=ExperimentalWarning --loader ts-node/esm  ./src/server.ts",
 		"format": "prettier --write .",
 		"prepare": "husky",
