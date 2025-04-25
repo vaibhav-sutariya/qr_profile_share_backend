@@ -1,0 +1,55 @@
+# .github/workflows/ci.yml
+
+name: Node.js CI/CD
+
+on:
+    push:
+        branches: [main]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: 🔄 Checkout code
+              uses: actions/checkout@v3
+
+            - name: 🟢 Setup Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 18
+
+            - name: 📦 Install dependencies
+              run: npm install
+
+            - name: 📝 Create .env file
+              run: |
+                  echo "TOKEN=${{ secrets.TOKEN }}" >> .env
+                  echo "PORT=${{ secrets.PORT }}" >> .env
+                  echo "NODE_ENV=${{ secrets.NODE_ENV }}" >> .env
+                  echo "MONGO_DB_PASSWORD=${{ secrets.MONGO_DB_PASSWORD }}" >> .env
+                  echo "MONGO_DB=${{ secrets.MONGO_DB }}" >> .env
+                  echo "JWT_REFRESH_TOKEN_SECRET=${{ secrets.JWT_REFRESH_TOKEN_SECRET }}" >> .env
+                  echo "JWT_REFRESH_TOKEN_EXPIRES_IN=${{ secrets.JWT_REFRESH_TOKEN_EXPIRES_IN }}" >> .env
+                  echo "JWT_COOKIE_EXPIRES_IN=${{ secrets.JWT_COOKIE_EXPIRES_IN }}" >> .env
+                  echo "JWT_AUTH_TOKEN_EXPIRES_IN=${{ secrets.JWT_AUTH_TOKEN_EXPIRES_IN }}" >> .env
+                  echo "JWT_ACCESS_TOKEN_SECRET=${{ secrets.JWT_ACCESS_TOKEN_SECRET }}" >> .env
+                  echo "GOOGLE_CLIENT_ID=${{ secrets.GOOGLE_CLIENT_ID }}" >> .env
+                  echo "FIREBASE_PROJECT_ID=${{ secrets.FIREBASE_PROJECT_ID }}" >> .env
+                  echo "FIREBASE_PRIVATE_KEY=${{ secrets.FIREBASE_PRIVATE_KEY }}" >> .env
+                  echo "FIREBASE_CLIENT_EMAIL=${{ secrets.FIREBASE_CLIENT_EMAIL }}" >> .env
+                  echo "EMAIL_USERNAME=${{ secrets.EMAIL_USERNAME }}" >> .env
+                  echo "EMAIL_PORT=${{ secrets.EMAIL_PORT }}" >> .env
+                  echo "EMAIL_PASSWORD=${{ secrets.EMAIL_PASSWORD }}" >> .env
+                  echo "EMAIL_HOST=${{ secrets.EMAIL_HOST }}" >> .env
+                  echo "EMAIL_FROM=${{ secrets.EMAIL_FROM }}" >> .env
+                  echo "COOKIES_SECURE=${{ secrets.COOKIES_SECURE }}" >> .env
+
+            - name: 🧪 Run tests
+              run: npm test
+
+            - name: 🛠️ Build
+              run: npm run build
+
+            - name: 🚀 Run app (optional)
+              run: ts-node ./dist/server.js
