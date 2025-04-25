@@ -9,7 +9,7 @@
 	},
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"build": "rimraf ./dist && tsc && cp -R ./src/view ./dist/",
+		"build": "rimraf ./dist && tsc && copyfiles -u 1 \"src/view/**/*\" dist",
 		"start": "node ./dist/server.js",
 		"dev": "nodemon --exec node --no-warnings=ExperimentalWarning --loader ts-node/esm  ./src/server.ts",
 		"format": "prettier --write .",
@@ -54,6 +54,7 @@
 		"@types/nodemailer": "^6.4.15",
 		"@types/nodemailer-sendgrid": "^1.0.3",
 		"@types/validator": "^13.11.9",
+		"copyfiles": "^2.4.1",
 		"eslint": "^8.57.0",
 		"husky": "^9.0.11",
 		"lint-staged": "^15.2.2",
