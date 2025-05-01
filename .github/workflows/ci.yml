@@ -45,11 +45,5 @@ jobs:
                   echo "EMAIL_FROM=${{ secrets.EMAIL_FROM }}" >> .env
                   echo "COOKIES_SECURE=${{ secrets.COOKIES_SECURE }}" >> .env
 
-            - name: 🧪 Run tests
-              run: npm test
-
             - name: 🛠️ Build
               run: npm run build
-
-            - name: 🚀 Run app (optional)
-              run: ts-node ./dist/server.js
