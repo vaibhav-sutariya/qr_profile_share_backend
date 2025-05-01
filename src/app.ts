@@ -64,7 +64,7 @@ const corsOptions: CorsOptions = {
 		const allowedOrigins = [
 			"http://localhost:2000",
 			"http://localhost:3000",
-			// "https://mobileacademy.io",
+			"https://qr-profile-share-backend.onrender.com",
 			// "https://wecancode.in",
 		];
 
