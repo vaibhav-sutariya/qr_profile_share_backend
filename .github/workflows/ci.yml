@@ -44,6 +44,11 @@ jobs:
                   echo "EMAIL_HOST=${{ secrets.EMAIL_HOST }}" >> .env
                   echo "EMAIL_FROM=${{ secrets.EMAIL_FROM }}" >> .env
                   echo "COOKIES_SECURE=${{ secrets.COOKIES_SECURE }}" >> .env
+                  echo "DEEP_LINK_DOMAIN=${{ secrets.DEEP_LINK_DOMAIN }}" >> .env
+                  echo "DOMAIN_URI_PREFIX=${{ secrets.DOMAIN_URI_PREFIX }}" >> .env
+                  echo "API_KEY=${{ secrets.API_KEY }}" >> .env
+                  echo "PACKAGE_NAME=${{ secrets.PACKAGE_NAME }}" >> .env
+                  echo "PLAYSTORE_URL=${{ secrets.PLAYSTORE_URL }}" >> .env
 
             - name: 🛠️ Build
               run: npm run build
