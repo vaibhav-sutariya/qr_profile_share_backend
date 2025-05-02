@@ -10,7 +10,7 @@ import {
 	uploadImage,
 } from "../data/controllers/user/user-controller.js";
 import { protect } from "../data/controllers/auth/auth-controller.js";
-
+import { generateDynamicLink } from "../data/services/dynamic-link.js";
 const router = Router();
 // this will protect all the routes below with this middleware
 // router.use(protect);
@@ -27,5 +27,5 @@ router.patch("/update-me", protect, updateMe as RequestHandler);
 router.delete("/delete-me", protect, deleteMe as RequestHandler);
 router.patch("/disable-me", protect, disableMe as RequestHandler);
 router.get("/getOneUser/:id", getUserById as RequestHandler);
-
+router.post("/generate-link", generateDynamicLink);
 export default router;
