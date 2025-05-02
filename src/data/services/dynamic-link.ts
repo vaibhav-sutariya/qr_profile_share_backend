@@ -10,7 +10,7 @@ export const generateDynamicLink = catchAsync(
 		const longLink = `https://randomqr.page.link/?link=${encodeURIComponent(
 			`https://qr-profile-share-backend.onrender.com/api/v1/users/getOneUser/${id}`,
 		)}&apn=com.example.qr_profile_share&afl=${encodeURIComponent(
-			"https://play.google.com/store/apps/details?id=com.example.qr_profile_share",
+			"https://play.google.com/store/apps/details?id=com.quikhitch",
 		)}`;
 
 		res.status(200).json({
