@@ -19,7 +19,8 @@ import User from "../../../model/user-model.js";
 export const scanAndCreateContact = catchAsync(
 	async (req: Request, res: Response, next: NextFunction) => {
 		const scannedUserId = req.body.userId; // From QR Code
-		const scannerUserId = req.user.id; // From auth middleware
+		const scannerUserId = req.user.id;
+		const tags = req.body.tags;
 
 		if (scannedUserId === scannerUserId) {
 			return next(
@@ -67,6 +68,7 @@ export const scanAndCreateContact = catchAsync(
 			socialLinks: scannedUser.socialLinks,
 			photo: scannedUser.photo,
 			role: scannedUser.role,
+			tags: tags,
 		});
 
 		res.status(HttpStatusCode.CREATED).json({

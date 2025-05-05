@@ -13,6 +13,7 @@ export interface IContact extends mongoose.Document {
 	userRole: string;
 	website: string;
 	location: string;
+	tags: string;
 	socialLinks: {
 		github: string;
 		linkedIn: string;
@@ -66,6 +67,10 @@ const contactSchema = new mongoose.Schema<IContact>(
 		location: {
 			type: String,
 			required: true,
+		},
+		tags: {
+			type: String,
+			default: "",
 		},
 		socialLinks: {
 			github: {
